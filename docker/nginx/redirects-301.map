@@ -4,15 +4,13 @@
 ~^/1.8/.+ /1.8/;
 ~^/service-docs/(.*)$ /services/$1;
 
-/support/ https://support.mesosphere.com;
-
 ~^/docs/(.*)$ /$1;
 ~^/([0-9]+\.[0-9]+/.*)$ /mesosphere/dcos/$1;
-~^/(services/.*)$ /mesosphere/dcos/$1;
-~^/(cn/.*)$ /mesosphere/dcos/$1;
-~^/(version-policy/.*)$ /mesosphere/dcos/$1;
-~^/(search/.*)$ /mesosphere/dcos/$1;
-~^/ksphere/konvoy/1.5/tutorials/replacing-failed-control-plane-node/(.*) /ksphere/konvoy/1.5/troubleshooting/replace-failed-control-plane-node/$1;
+~^/services/(.*)$ /mesosphere/dcos/services/$1;
+~^/cn/(.*)$ /mesosphere/dcos/cn/$1;
+~^/version-policy/(.*)$ /mesosphere/dcos/version-policy/$1;
+~^/search/(.*)$ /mesosphere/dcos/search/$1;
+~^/ksphere/konvoy/1.5/tutorials/replacing-failed-control-plane-node/(.*)$ /ksphere/konvoy/1.5/troubleshooting/replace-failed-control-plane-node/$1;
 
 /wp-content/uploads/2017/08/cassandra-service-gui-1200x245.gif /services/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui.png;
 /wp-content/uploads/2017/08/cassandra-service-gui2-1200x254.gif /services/cassandra/v1.0.25-3.0.10/img/cassandra-service-gui2.png;
