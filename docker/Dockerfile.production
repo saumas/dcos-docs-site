@@ -26,12 +26,7 @@ RUN make --jobs=$(expr $(nproc) - 1) build-api
 RUN \
 GIT_BRANCH=$git_branch \
 ALGOLIA_UPDATE=$algolia_update \
-ALGOLIA_PROJECT_ID=$algolia_project_id \
-ALGOLIA_PUBLIC_KEY=$algolia_public_key \
 ALGOLIA_PRIVATE_KEY=$algolia_private_key \
-ALGOLIA_INDEX=$algolia_index \
-ALGOLIA_SKIP_SECTIONS=$algolia_skip_sections \
-METALSMITH_SKIP_SECTIONS=$metalsmith_skip_sections \
 npm run build
 
 # Add google site verifications

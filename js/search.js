@@ -5,8 +5,8 @@ try {
   // Env vars injected from webpack config
   //
 
-  const algoliaProjectId = ALGOLIA_PROJECT_ID;
-  const algoliaPublicKey = ALGOLIA_PUBLIC_KEY;
+  const algoliaProjectId = "Z0ZSQ5T6T2";
+  const algoliaPublicKey = "d0ef5c801751c1d2d5e716af0c098bc3";
   const algoliaIndex = window.location.pathname
     .split("/")
     .slice(1, 3)

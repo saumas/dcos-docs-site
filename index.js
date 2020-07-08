@@ -42,27 +42,8 @@ function splitCommasOrEmptyArray(val) {
 // Environment Variables
 const GIT_BRANCH = process.env.GIT_BRANCH;
 const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
-const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
-const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
-const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
-
-const branchDoNotIndex = config[GIT_BRANCH]
-  ? config[GIT_BRANCH].DO_NOT_INDEX
-  : [];
-
-const ALGOLIA_SKIP_SECTIONS = branchDoNotIndex
-  ? config.always.DO_NOT_INDEX.concat(branchDoNotIndex)
-  : config.always.DO_NOT_INDEX;
-
-const branchDoNotBuild = config[GIT_BRANCH]
-  ? config[GIT_BRANCH].DO_NOT_BUILD
-  : config.local.DO_NOT_BUILD;
-
-const METALSMITH_SKIP_SECTIONS = config.always.DO_NOT_BUILD.concat(
-  branchDoNotBuild
-);
 
 //
 // Errors
@@ -76,17 +57,8 @@ if (ALGOLIA_UPDATE === "true") {
   if (process.env.NODE_ENV === "pdf") {
     throw new Error("Algolia env vars set while build env is pdf");
   }
-  if (!ALGOLIA_PROJECT_ID) {
-    throw new Error("Env var ALGOLIA_PROJECT_ID has not been set.");
-  }
-  if (!ALGOLIA_PUBLIC_KEY) {
-    throw new Error("Env var ALGOLIA_PUBLIC_KEY has not been set.");
-  }
   if (!ALGOLIA_PRIVATE_KEY) {
     throw new Error("Env var ALGOLIA_PRIVATE_KEY has not been set.");
-  }
-  if (!ALGOLIA_INDEX) {
-    throw new Error("Env var ALGOLIA_INDEX has not been set.");
   }
 }
 
@@ -342,7 +314,7 @@ if (RENDER_PATH_PATTERN) {
 if (ALGOLIA_UPDATE === "true") {
   MS.use(
     algolia({
-      projectId: ALGOLIA_PROJECT_ID,
+      projectId: "Z0ZSQ5T6T2",
       privateKey: ALGOLIA_PRIVATE_KEY,
       skipSections: ALGOLIA_SKIP_SECTIONS,
       renderPathPattern: pathPatternRegex,
