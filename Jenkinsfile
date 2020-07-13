@@ -21,8 +21,8 @@ pipeline {
           envsubst < s3bucketpolicy > .policy
           aws s3api put-bucket-policy --bucket $BUCKET --policy file:///app/.policy
           aws s3api put-bucket-website --bucket $BUCKET --website-configuration file:///app/s3config.json
-          aws s3 cp /app/index.html s3://$BUCKET/index.html
-          aws s3 cp /app/index.html s3://$BUCKET/404/index.html
+
+          aws s3 sync --acl bucket-owner-full-control ./build s3://$BUCKET
           '''
         }
       }

@@ -23,11 +23,10 @@ header(class='header')
             a(href=val.path)!= val.title
         li(class='header__menu-item')
           a(href='https://support.d2iq.com') Support
+  include ksphere-dropdown.pug
+  include mesosphere-dropdown.pug
   if sphere === 'mesosphere'
-    include ksphere-dropdown.pug
     include localization-dropdown.pug
-  else
-    include mesosphere-dropdown.pug
   section(class='header__search', role='search')
     form(class='header__search-form', action=`/${sphere}/${product}/search/`, method='GET')
       input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')

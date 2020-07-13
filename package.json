@@ -4,8 +4,8 @@
   "description": "Mesosphere docs",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-permalinks,metalsmith-assets node index.js",
-    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-permalinks,metalsmith-assets node index.js",
+    "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-assets node index.js",
+    "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-assets node index.js",
     "webpack": "webpack --progress --colors"
   },
   "author": "D2iQ",

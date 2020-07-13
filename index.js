@@ -35,12 +35,7 @@ const configData = fs.readFileSync("config.json");
 const config = JSON.parse(configData);
 const shortcodesConfig = require("./shortcodes");
 
-function splitCommasOrEmptyArray(val) {
-  return val && val.length > 0 ? val.split(",") : [];
-}
-
 // Environment Variables
-const GIT_BRANCH = process.env.GIT_BRANCH;
 const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
 const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
@@ -48,11 +43,6 @@ const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 //
 // Errors
 //
-
-if (!GIT_BRANCH && process.env.NODE_ENV !== "development") {
-  throw new Error("Env var GIT_BRANCH has not been set.");
-}
-
 if (ALGOLIA_UPDATE === "true") {
   if (process.env.NODE_ENV === "pdf") {
     throw new Error("Algolia env vars set while build env is pdf");
@@ -80,7 +70,6 @@ MS.metadata({
     "pages to get started.",
   copyright: `&copy; ${currentYear} D2iQ, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
-  gitBranch: GIT_BRANCH,
   conductorDocsLatest: "1.0",
   dcosCNDocsLatest: "2.0",
   dcosDocsLatest: "2.1",
