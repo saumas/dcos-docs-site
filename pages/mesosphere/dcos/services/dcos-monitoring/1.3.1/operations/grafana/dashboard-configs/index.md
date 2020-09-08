@@ -17,7 +17,7 @@ The {{ model.techName }} service can be configured to automatically load Grafana
 You should save your Grafana dashboard configurations (JSON format) in a Git repository.
 Assume that the repository is `https://github.com/company/dashboard-configs`.
 
-You can put the Grafana dashboard configurations in a folder in the repository.
+You can put the Grafana dashboard configurations in a subfolder in the repository.
 For instance, `https://github.com/company/dashboard-configs/production`.
 
 ```json
@@ -34,12 +34,10 @@ For instance, `https://github.com/company/dashboard-configs/production`.
 The Git repository can be either public or private.
 If the Git repository is private, you will need to configure the credentials to access the Git repository (see below).
 
-<p class="message--note"><strong>NOTE: </strong>If enabled, the set of default dashboards shipped with the service is from the Mesosphere-maintained Git repository
-<code>https://github.com/dcos/grafana-dashboards</code>.
+<p class="message--note"><strong>NOTE: </strong>If enabled, the set of default dashboards shipped with the service is from the Mesosphere-maintained Git repository `https://github.com/dcos/grafana-dashboards`.
 These dashboards are updated with {{ model.techName }} service releases.
-If you would like to use the most up-to-date version of these dashboards that has not yet been released,
-you can configure the repository address to point to <code>https://github.com/dcos/grafana-dashboards</code>.
-The <code>grafana.default_dashboards</code> option should be set to <code>false</code>.
+If you would like to use the most up-to-date version of these dashboards that has not yet been released, you can configure the repository url to point to `https://github.com/dcos/grafana-dashboards`.
+The `grafana.default_dashboards` option should be set to `false`.
 As it is a public repository, there is no need to set up the `credentials`.</p>
 
 ```json
@@ -59,8 +57,7 @@ As it is a public repository, there is no need to set up the `credentials`.</p>
 If the Git repository containing the Grafana dashboard configurations is private, you will need to configure the secrets first.
 Currently, the following Auth types are supported.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository.
-For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's `.gitmodules` file must use the `https` URL scheme.</p>
 
 ### HTTP Auth
 
@@ -95,7 +92,7 @@ You can omit the `credentials` section if the Git repository is public.
 dcos security secrets create -f <PATH_TO_PRIVATE_KEY> gitsshkey-secret
 ```
 
-For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that is, the public key) to the repository.
+For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (i.e., the public key) to the repository.
 
 Create a custom option file (`options.json`) like the following.
 
@@ -113,11 +110,11 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You will have to use `git@github.com:<USER>/<REPO>.git` instead of <code>https</code> as the scheme of the URL.</p>
+<p class="message--note"><strong>NOTE: </strong>You will have to use `git@github.com:<USER>/<REPO>.git` instead of `https` as the scheme of the URL.</p>
 
 ## Fetching from a branch in a Git repository
 
-By default, the service will fetch from the master branch (that is `refs/heads/master`) of the Git repository.
+By default, the service will fetch from the master branch (that is, `refs/heads/master`) of the Git repository.
 
 If you want to fetch the Grafana dashboard configurations from another branch in a Git repository, you can set the `reference_name` field:
 

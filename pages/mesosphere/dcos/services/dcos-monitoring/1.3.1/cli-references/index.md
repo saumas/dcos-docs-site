@@ -10,7 +10,7 @@ enterprise: false
 
 The monitoring plugin for the DC/OS command line interface (DC/OS CLI) utility allows you to manage the monitoring stack running on a DC/OS cluster.
 
-For instructions on how to install the DC/OS Monitoring CLI look at [getting started](../getting-started/) page.
+Instructions on how to install the DC/OS Monitoring CLI can be found [here](../getting-started/index.md).
 
 To list available commands, run `dcos monitoring` with no parameters:
 
@@ -47,11 +47,11 @@ Use "dcos monitoring [command] --help" for more information about a command.
 
 # Specify the monitoring endpoint used by the monitoring CLI
 
-To interact with your monitoring, you may need to set the monitoring endpoint URL
+To interact with your monitoring, you may need to set which URL is used.
 
-By default, the monitoring CLI assumes the monitoring stack is accessible using the address `<cluster-url>/service/dcos-monitoring`.
+By default, the monitoring CLI assumes the monitoring stack is accessible using the URL `<cluster-url>/service/dcos-monitoring`.
 
-To set another address, use `dcos config set monitoring.url`:
+To set another URL, use `dcos config set monitoring.url`:
 
 ```bash
 dcos config set monitoring.url <cluster-url>/service/custom-dcos-monitoring-name

@@ -35,10 +35,10 @@ This step is not required if the users are not using the [`generatorURL`](https:
 
 ## Access through Marathon LB
 
-You can choose to access the Prometheus UI through [Marathon LB](/mesosphere/dcos/services/marathon-lb/) by configuring the service.
+You can also choose to access the Prometheus UI through [Marathon LB](https://docs.mesosphere.com/services/marathon-lb/1.12.x/) by configuring the service.
 
 You must configure `prometheus.marathon_lb_proxy.vhost` field to be the Fully Qualified Domain Name (FQDN) for the service.
-This is typically your cloud load balancer FQDN (for example ELB).
+This is typically your cloud load balancer FQDN (e.g., ELB).
 You must turn off the Admin Router proxy support to enable the Marathon LB support.
 
 ```json
@@ -55,4 +55,4 @@ You must turn off the Admin Router proxy support to enable the Marathon LB suppo
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Currently, there is a limitation where the service name cannot contain any character that is not allowed in a DNS name (for example /), which means the service cannot be installed in a Marathon folder.</p>
+<p class="message--note"><strong>NOTE: </strong>Currently, there is a limitation where the service name cannot contain any character that is not allowed in a DNS name (e.g., /), which means the service cannot be installed in a Marathon folder.</p>

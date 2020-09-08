@@ -15,7 +15,7 @@ Alertmanager is off by default and must be configured to be turned on.
 # Prerequisites
 
 - DC/OS 1.12 or later.
-- [DC/OS CLI](/mesosphere/dcos/latest/cli/install/) is installed.
+- [DC/OS CLI](/latest/cli/install/) is installed.
 - You are logged in as a superuser.
 
 # Install {{ model.techName }} service
@@ -32,7 +32,7 @@ Use the following command to install the service.
 dcos package install {{ model.packageName }} --package-version=<VERSION>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>The command `dcos package install` will install the {{ model.techName }} service and the package CLI.</p>
+<p class="message--note"><strong>NOTE: </strong>The command `dcos package install` will install the {{ model.techName }} service as well as the package CLI.</p>
 
 ## {{ model.techName }} CLI
 
@@ -64,7 +64,7 @@ You can also go to the **Services > Deployments** tab of the DC/OS GUI to monito
 
 <p class="message--warning"><strong>WARNING: </strong>It is recommended to access Grafana via <a href="https://docs.mesosphere.com/services/edge-lb/1.3/">Edge-LB</a>. If you access Grafana via AdminRouter then it can limit the capabilities of Grafana. For example, some graphs will not work under load.</p>
 
-Assuming the service name is `{{ model.serviceName }}` (default), you should be able to access the Grafana dashboards using the following address:
+Assuming the service name is `{{ model.serviceName }}` (default), you should be able to access the Grafana dashboards using the following URL:
 
 ```bash
 https://<CLUSTER_URL>/service/{{ model.serviceName }}/grafana/

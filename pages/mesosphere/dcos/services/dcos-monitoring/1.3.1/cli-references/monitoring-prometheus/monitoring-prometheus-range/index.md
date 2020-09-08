@@ -24,7 +24,7 @@ dcos monitoring prometheus range <query> --start=<start> --end=<end> --step=<ste
 | `--end int`   |   End UNIX timestamp. |
 | `--help, h`   |   Display usage. |
 | `--start int`   |   Start UNIX timestamp. |
-| `--step string`   |   Query resolution step width duration, for example '15m3s' (default to '1s'). |
+| `--step string`   |   Query resolution step width duration, e.g. '15m3s' (default to '1s'). |
 
 ## Positional arguments
 
@@ -36,4 +36,4 @@ dcos monitoring prometheus range <query> --start=<start> --end=<end> --step=<ste
 
 | Command | Description |
 |---------|-------------|
-| [`dcos monitoring prometheus`](../) |  Query the Prometheus endpoint |
+| [dcos monitoring prometheus](../monitoring-prometheus/) |  Query the Prometheus endpoint |

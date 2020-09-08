@@ -11,16 +11,17 @@ model: ../../../data.yml
 # Enabling Alertmanager
 
 Alertmanager is off by default.
+There is no default configuration that the Alertmanager is automatically run with.
 To enable Alertmanager, the {{ model.techName }} service must be configured to load the Alertmanager configurations from a Git repository.
 See the [Alertmanager documentation](https://prometheus.io/docs/alerting/configuration/) to learn how to create the configuration file.
 
 ## Save Alertmanager configurations
 
 The Alertmanager configuration file (YAML format) must be named `config.yml`.
-You should save `config.yml` and all template files in a Git repository.
+You should save `config.yml` as well as all template files in a Git repository.
 Assume that the repository is `https://github.com/company/alertmanager-configs`.
 
-You can put `config.yml` and template files in a folder in the repository.
+You can put `config.yml` and template files in a subfolder in the repository.
 For instance, `https://github.com/company/alertmanager-configs/production`.
 
 ```json
@@ -43,7 +44,7 @@ If the Git repository is private, you must configure the credentials to access t
 If the Git repository containing the Alertmanager configurations is private, you must configure the secrets first.
 Currently, the following Auth types are supported.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's `.gitmodules` file must use the `https` URL scheme.</p>
 
 ### HTTP Auth
 
@@ -95,7 +96,7 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You will have to use `git@github.com:<USER>/<REPO>.git` instead of <code>https<code> as the scheme of the URL.</p>
+<p class="message--note"><strong>NOTE: </strong>You will have to use `git@github.com:<USER>/<REPO>.git` instead of `https` as the scheme of the URL.</p>
 
 ## Secrets in the Alertmanager configuration file
 
