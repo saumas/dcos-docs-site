@@ -16,7 +16,7 @@ model: ../../../data.yml
 
 You can pass custom configuration file to Grafana by setting `grafana.config_files.custom`.
 
-Create a custom configuration file (`grafana.ini`) like the following.
+Create a custom config file (`grafana.ini`) like the following.
 
 ```ini
 instance_name = test_grafana
@@ -47,7 +47,7 @@ By default LDAP is disabled.
 
 You can configure LDAP Authentication by setting `grafana.config_files.ldap`.
 
-Create a custom configuration file (`ldap.toml`) like the following.
+Create a custom config file (`ldap.toml`) like the following.
 
 ```toml
 [[servers]]
@@ -85,4 +85,4 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-Read mo
+Read more about [Grafana LDAP Authentication](https://grafana.com/docs/grafana/v7.0/auth/ldap/#ldap-authentication)

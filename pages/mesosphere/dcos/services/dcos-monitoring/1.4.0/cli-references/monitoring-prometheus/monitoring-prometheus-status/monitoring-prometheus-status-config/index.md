@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos monitoring prometheus status config` returns the loaded configuration file.
+The `dcos monitoring prometheus status config` returns the currently loaded configuration file.
 
 # Usage
 
@@ -27,4 +27,4 @@ dcos monitoring prometheus status config [flags]
 
 | Command | Description |
 |---------|-------------|
-| [`dcos monitoring prometheus status`](../) |Expose current Prometheus configuration |
+| [dcos monitoring prometheus status](../monitoring-prometheus-status/) |Expose current Prometheus configuration |

@@ -13,10 +13,10 @@ model: ../../../data.yml
 ## Remote Storage
 
 You can configure Prometheus to use remote storage. Prometheus's local storage is limited by single nodes in its scalability and durability. Instead of trying to solve clustered storage in Prometheus itself, Prometheus has a set of interfaces that allow integrating with remote storage systems.
+
 The remote write and remote read features of Prometheus allow transparently sending and receiving samples. This is primarily intended for long term storage. It is recommended that you perform careful evaluation of any solution in this space to confirm it can handle your data volumes.
 
-
-The following is an example of the configuration that deploys Prometheus with a remote write feature. You can create a similar configuration for remote read:
+The following example of configuration that will deploy Prometheus with remote write feature, simillar can be done for remote read:
 
 ```json
 {
@@ -49,6 +49,6 @@ The following is an example of the configuration that deploys Prometheus with a 
 }
 ```
 
-Note: You must configure the secrets for the ca_file,cert_file,key_file bearer_token_file files and provide the path in above configuration.
+you will need to configure the secrets for files like ca_file,cert_file,key_file bearer_token_file and provide its path in above configuration.
 
-Refer to [remote-storage-integrations](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations) [doremote-endpoints-and-storage](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) [remote_read](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read) for more details about remote storage.
+Refer to links [remote-storage-integrations](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations) [doremote-endpoints-and-storage](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) [remote_read](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read) for more details about remote storage.

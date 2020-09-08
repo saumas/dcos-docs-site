@@ -8,9 +8,7 @@ render: mustache
 model: ../data.yml
 ---
 
-The {{ model.techName }} service is run on DC/OS clusters in either `permissive` or `strict` mode.
-DC/OS access controls must be used to restrict access to the {{ model.techName }} service when running on [strict](/1.13/security/ent/#security-modes) mode clusters.
-Configure the {{ model.techName }} service to authenticate itself using a certificate and to grant permissions required by the service.
+The {{ model.techName }} service is run on DC/OS clusters in either `permissive` or `strict` mode. DC/OS access controls must be used to restrict access to the {{ model.techName }} service when running on [strict](/1.13/security/ent/#security-modes) mode clusters. Configure the {{ model.techName }} service to authenticate itself using a certificate and to only grant permissions required by the service.
 
 This page describes how to configure DC/OS access for {{ model.techName }} Service. Depending on your [security mode](/1.13/security/ent/#security-modes/), {{ model.techName }} Service requires [service authentication](/1.13/security/ent/service-auth/) for access to DC/OS.
 
@@ -20,18 +18,17 @@ This page describes how to configure DC/OS access for {{ model.techName }} Servi
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in `permissive` mode and do not specify a service account.
-Metronome and Marathon will act as if requests from this service is made by an account with the [superuser permission](/1.13/security/ent/perms-reference/#superuser).
+If you install a service in `permissive` mode and do not specify a service account, Metronome and Marathon will act as if requests from this service is made by an account with the [superuser permission](/1.13/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/1.13/cli/install/) and logged in as a superuser.
+- [DC/OS CLI installed](/1.13/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/1.13/cli/enterprise-cli/#ent-cli-install).
 - If your [security mode](/1.13/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/1.13/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # Create a Key Pair
 
-In this step, create a 2048-bit RSA public-private key pair using the Enterprise DC/OS CLI.
+In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
 
 Create a public-private key pair and save each value into a separate file within the current directory.
 
@@ -39,7 +36,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/1.13/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the [DC/OS Secret Store](/1.13/security/ent/secrets/) to secure the key pair.</p>
 
 # Create a Service Account
 
@@ -74,9 +71,8 @@ dcos security org users grant {{ model.packageName }}-principal dcos:secrets:def
 dcos security org users grant {{ model.packageName }}-principal dcos:secrets:list:default:/{{ model.packageName }} read
 ```
 
-<p class="message--IMPORTANT"><strong>IMPORTANT: </strong>Starting in DC/OS 2.0, when installing the service into a group/folder (for example `infra/`),
-the `role` permissions must be modified to use the group name (`infra`) instead of `{{ model.packageName }}-role`.
-See the <a href="https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0">SDK v0.57.0 release notes</a> for more information.</p>
+<p class="message--IMPORTANT"><strong>IMPORTANT: </strong>Starting in DC/OS 2.0, when installing the service into a group/folder (e.g. `infra/`), the `role` permissions must be modified to use the group name (`infra`) instead of `{{ model.packageName }}-role`.
+See the [SDK v0.57.0 release notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0) for more information.</p>
 
 # Create a Configuration file
 

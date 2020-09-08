@@ -26,7 +26,7 @@ To achieve this, use the following syntax for the placement constraint:
 ## Updating placement constraints
 
 Clusters change, and so will your placement constraints.
-However, already-running service pods  **will not** be affected by changes in placement constraints.
+However, already-running service pods will **not** be affected by changes in placement constraints.
 This is because altering a placement constraint might invalidate the current placement of a running pod, and the pod will not be relocated automatically, as doing so is a destructive action.
 We recommend using the following procedure to update the placement constraints of a pod:
 

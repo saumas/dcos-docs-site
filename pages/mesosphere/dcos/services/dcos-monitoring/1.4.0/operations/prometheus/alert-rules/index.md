@@ -26,7 +26,7 @@ The {{ model.techName }} service can be configured to automatically load Prometh
 You should save your Prometheus alert rules (YAML format) in a Git repository.
 Assume that the repository is `https://github.com/company/alert-rules`.
 
-You can put the alert rules in a folder in the repository.
+You can put the alert rules in a subfolder in the repository.
 For instance, `https://github.com/company/alert-rules/production`.
 
 ```json
@@ -42,17 +42,15 @@ For instance, `https://github.com/company/alert-rules/production`.
 }
 ```
 
-<p class="message--important"><strong>IMPORTANT: </strong>Make sure that each of the alert rule files has suffix <code>.yml</code>
-and is a direct child of the folder (that is not nested under another folder).</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Make sure that each of the alert rule files has suffix `.yml` and is a direct child of the subfolder (i.e., not nested under another subfolder).</p>
 
 The Git repository can be either public or private.
 If the Git repository is private, you will need to configure the credentials to access the Git repository (see below).
 
 <p class="message--note">
-<strong>NOTE:</strong> Mesosphere maintains a Git repository with Prometheus alerting rule configurations at <code>https://github.com/dcos/prometheus-alert-rules</code>.
-If you would like to use these Prometheus alerting rules, you should set <code>prometheus.alert_rules_repository.config_repository.url</code>
-to <code>https://github.com/dcos/prometheus-alert-rules</code> and <code>prometheus.alert_rules_repository.config_repository.path</code> to <code>/rules</code>.
-As it is a public repository, there is no need to set up the <code>credentials</code>.
+<strong>NOTE:</strong> Mesosphere maintains a Git repository with Prometheus alerting rule configurations at `https://github.com/dcos/prometheus-alert-rules`.
+If you would like to use these preconfigured Prometheus alerting rules, you should set `prometheus.alert_rules_repository.config_repository.url` to `https://github.com/dcos/prometheus-alert-rules` and `prometheus.alert_rules_repository.config_repository.path` to `/rules`.
+As it is a public repository, there is no need to set up the `credentials`.
 </p>
 
 ```json
@@ -73,7 +71,7 @@ As it is a public repository, there is no need to set up the <code>credentials</
 If the Git repository containing the alert rules is private, you will need to configure the secrets first.
 Currently, the following Auth types are supported.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's `.gitmodules` file must use the `https` URL scheme.</p>
 
 ### HTTP Auth
 
@@ -108,7 +106,7 @@ You may omit the `credentials` section if the Git repository is public.
 dcos security secrets create -f <PATH_TO_PRIVATE_KEY> gitsshkey-secret
 ```
 
-For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that is, the public key) to the repository.
+For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (i.e., the public key) to the repository.
 
 Create a custom option file (`options.json`) like the following.
 
@@ -126,7 +124,7 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You will have to use `git@github.com:<USER>/<REPO>.git` instead of <code>https</code> as the scheme of the URL.</p>
+<p class="message--note"><strong>NOTE: </strong>You will have to use `git@github.com:<USER>/<REPO>.git` instead of `https` as the scheme of the URL.</p>
 
 ## Fetching from a branch in a Git repository
 

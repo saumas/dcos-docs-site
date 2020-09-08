@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos monitoring prometheus` command offers commands to query the Prometheus endpoint of your monitoring stack.
+The `dcos monitoring prometheus` command offers subcommands to query the Prometheus endpoint of your monitoring stack.
 
 # Usage
 

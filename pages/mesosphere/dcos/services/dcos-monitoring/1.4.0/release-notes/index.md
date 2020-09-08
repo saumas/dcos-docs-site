@@ -8,15 +8,15 @@ render: mustache
 model: ../data.yml
 ---
 
-# DC/OS Monitoring v.1.4.0 was released on 1, September 2020
+# DC/OS Monitoring v.1.4.0
 
 ## New features
 
-* Grafana: custom configuration and LDAP support
+* Grafana: custom config and LDAP support
 * Grafana: plugins installation
-* Alertmanager: Add SMTP auth secret support.
+* Alertmanager: Add smtp auth secret support.
 * Alertmanager: Add a package option for git ref name.
-* Add an option to configure Prometheus remote write and remote read.
+* Add an option to configure prometheus remote write and remote read.
 
 ## Updates
 
@@ -24,14 +24,14 @@ model: ../data.yml
 * Prometheus to [2.20.0](https://github.com/prometheus/prometheus/releases/tag/v2.20.0)
 * Grafana to [7.1.1](https://github.com/grafana/grafana/blob/v7.1.1/CHANGELOG.md)
 * Pushgateway to [1.2.0](https://github.com/prometheus/pushgateway/releases/tag/v1.2.0)
-* nginx to [1.19.1](http://nginx.org/en/CHANGES)
+* Nginx to [1.19.1](http://nginx.org/en/CHANGES)
 
 ## Notes
 
 * There were many deprecations and breaking changes in updated components.
 * A `pod replace` operation is required if there are existing deployments of older versions on DC/OS 2.0. Please check the [SDK release notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3) for details.
 
-# DC/OS Monitoring v.1.3.1  was released on 23, July 2020
+# DC/OS Monitoring v.1.3.1
 
 ## Updates
 
@@ -41,9 +41,9 @@ model: ../data.yml
 
 ## New features
 
-* Alertmanager: Add SMTP auth secret support.
-* Alertmanager: Add a package option for git ref name.
-* Add an option to configure Prometheus remote write and remote read.
+* alertmanager: Add smtp auth secret support.
+* alertmanager: Add a package option for git ref name.
+* Add an option to configure prometheus remote write and remote read.
 
 ## Updates
 
@@ -51,7 +51,7 @@ model: ../data.yml
 
 ## Notes
 
-* A `pod replace` operation is required if there are existing deployments of older versions on DC/OS 2.0. See [the SDK release notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3) for details.
+* A `pod replace` operation is required if there are existing deployments of older versions on DC/OS 2.0. See the SDK release notes for details at <https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3>.
 
 # Version v1.2.0
 
@@ -63,7 +63,7 @@ model: ../data.yml
 
 * Changed default token refresh interval for Prometheus agent discovery task to 1 hour.
 * Upgraded version of Go to 1.13.
-* Fixed typo in "dcos monitoring describe" CLI command.
+* Fixed typo in "dcos monitoring describe" CLI subcommand.
 
 # Version v1.1.0
 
@@ -71,11 +71,11 @@ model: ../data.yml
 
 * Support Prometheus server placement constraints.
 * Support scheduler placement constraints.
-* Add new CLI commands for Prometheus (`dcos monitoring prometheus`).
+* Add new CLI subcommands for Prometheus ("dcos monitoring prometheus").
 
 ## Updates
 
-* Add workaround for a bug in DC/OS versions 1.13.0–1.13.4 that caused permission errors in nginx when running dcos-monitoring as root.
+* Add workaround for a bug in DC/OS versions 1.13.0-1.13.4 that caused permission errors in Nginx when running dcos-monitoring as root.
 * Update SDK to v0.57.1.
 
 # Version v1.0.2
@@ -108,7 +108,7 @@ model: ../data.yml
 * Modify configuration option names for Secrets fields.
 * Pushgateway is now optional and off by default.
 * Installation is now blocked with helpful errors if extraneous configuration options are included.
-* The DC/OS Monitoring CLI command is now `monitoring` instead of `dcos-monitoring`.
+* The DC/OS Monitoring CLI subcommand is now "monitoring" instead of "dcos-monitoring".
 
 ## Known limitations
 
@@ -119,17 +119,17 @@ model: ../data.yml
 ## New features
 
 * Add Marathon LB integration.
-* Enable `gzip` compression for Grafana's HTTP server.
+* Enable gzip compression for Grafana's HTTP server.
 * Add a link to the Grafana UI on the Services page.
 * Set the Home dashboard in Grafana to the DC/OS Overview dashboard.
 
 ## Updates
 
-* Grafana dashboard titles are no longer overwritten by the file path of the dashboard JSON.
+* Grafana dashboard titles are no longer overwritten by the file path of the dashboard json.
 
 ## Known limitations
 
-* Service name cannot contain characters that are not allowed in a DNS name (for example `/`) if using Marathon LB integration.
+* Service name cannot contain characters that are not allowed in a DNS name (e.g., /) if using Marathon LB integration.
 
 # Version v0.4.3
 
@@ -163,14 +163,14 @@ model: ../data.yml
 ## Updates
 
 * Support for configuring Prometheus storage retention.
-* Support for configuring Alertmanager resource footprint (that is CPU and memory).
+* Support for configuring Alertmanager resource footprint (i.e., CPU and memory).
 * Installable from the Universe.
 * Update SDK to 0.55.2.
 * New logo.
 
 ## Known limitations
 
-* Upgrading from v0.3.0 is not supported now.
+* Upgrading from v0.3.0 is not supported at this time.
 * Does not support loading Prometheus alert rules recursively from a directory.
 
 # Version v0.3.0
@@ -184,7 +184,7 @@ model: ../data.yml
 
 ## Updates
 
-* Remove support for Prometheus Mesos Exporter, no longer used to collect Mesos metrics.
+* Remove support for Prometheus Mesos Exporter, which is no longer used to collect Mesos metrics.
 
 # Version v0.2.1
 
