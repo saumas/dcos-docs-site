@@ -38,6 +38,28 @@ LIVEEDIT_PAGES_SRC_ABS_PATH ?= $(shell pwd)/pages/mesosphere/dcos/2.1
 LIVEEDIT_PAGES_DST_REL_PATH ?= mesosphere/dcos/2.1
 LIVEEDIT_RENDER_PATH_PATTERN ?= $(LIVEEDIT_PAGES_DST_REL_PATH)/**
 
+LOCALSITE_IMAGE := docs-local-site
+LOCALSITE_HOST_PORT ?= 3000
+SOURCE ?= $(shell pwd)/pages/ksphere/konvoy/1.6
+OUTPUT ?= ksphere/konvoy/1.6
+RPP ?= $(OUTPUT)/**
+
+local-site-image: ## Install dependencies and build the site. Takes approximately 15 minutes.
+	docker build \
+		-f docker/Dockerfile.liveedit \
+		-t $(LOCALSITE_IMAGE) \
+		.
+
+local-site: ## Start a liveediting container
+	@test -n "$$(docker image ls --quiet $(LOCALSITE_IMAGE))" || (echo "Image '$(LOCASITE_IMAGE)' not found. Did you already run 'make docker-liveedit-image'?"; exit 1)
+	# Note: --mount consistency=delegated for MacOS. See https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos.
+	docker run -it --rm \
+	--env RENDER_PATH_PATTERN=$(RPP) \
+	--mount type=bind,src=$(SOURCE),dst=/dcos-docs-site/pages/$(OUTPUT),consistency=delegated,readonly \
+	--publish 127.0.0.1:$(LOCALSITE_HOST_PORT):3000 \
+	--publish 127.0.0.1:35729:35729 \
+	$(LOCALSITE_IMAGE)
+
 docker-liveedit-image: ## Install dependencies and build the site. Takes approximately 15 minutes.
 	docker build \
 		-f docker/Dockerfile.liveedit \
